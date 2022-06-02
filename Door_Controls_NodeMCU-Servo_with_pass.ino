@@ -1,12 +1,10 @@
-//Code For ESP8266 And Servo With Password
-
 #include <ESP8266WiFi.h>  //NodeMCU library
-#include "SLib.h"  //My Servo Library.. created by me 😎😎😎😎😎😎😎
+#include "SLib.h"  //My Servo Library
 #define m D4  //servo pin
 int last = 3;  //Last State(Lock/Unlock)
-String ssid = "Darshan";  //Network SSID
-String pass = "ardarshan75";  //Network Password
-String door_pass = "un1234567";
+String ssid = "yourSSID";  //Network SSID
+String pass = "yourPassword";  //Network Password
+String door_pass = "passwordForDoor";
 
 WiFiClient client;  //Renaming WiFi Client As client
 WiFiServer server(80);  //Renaming WiFi server As server and server port = 80
@@ -32,7 +30,6 @@ void setup() {
   Serial.begin(112500);
   delay(1000);
   Serial.println("Connecting...");  
-  //WiFi.begin("JOSHI'S", "EdcThN@1pA@SN");
   WiFi.begin(ssid, pass);  //connect to WiFi
   if (!WiFi.config(local_IP, gateway, subnet)) {  //Set Page Link
     Serial.println("STA Failed to configure");  //Print This In Case Of Error
